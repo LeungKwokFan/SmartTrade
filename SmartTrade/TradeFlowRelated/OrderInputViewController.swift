@@ -117,6 +117,7 @@ class OrderInputViewController: UIViewController {
     @IBAction func placeBuyTapped(_ sender: Any) {
         if priceOrderType.text == "Limit Order Price"{
             limitBuy()
+            print("1")
         }
         else{
             marketBuy()
