@@ -379,17 +379,23 @@ class StockDetailViewController: UIViewController {
     // BUY AND SELL FUNCTION PART
     
     @IBAction func BuyButtonTapped(_ sender: Any) {
-//        if let vc = storyboard?.instantiateViewController(identifier: "OrderInputViewController") as? OrderInputViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-        showBuyOptionPopup()
+        if let vc = storyboard?.instantiateViewController(identifier: "OrderInputViewController") as? OrderInputViewController {
+            let stockPrice = Double(self.Stockprice.text ?? "0.0") ?? 0.0
+            vc.currentPrice = stockPrice
+            vc.stockSymbol = self.stockName.text
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+//        showBuyOptionPopup()
     }
     
     @IBAction func SellButtonTapped(_ sender: Any) {
-//        if let vc = storyboard?.instantiateViewController(identifier: "OrderOutputViewController") as? OrderOutputViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-        showSellOptionPopup()
+        if let vc = storyboard?.instantiateViewController(identifier: "OrderOutputViewController") as? OrderOutputViewController {
+            let stockPrice = Double(self.Stockprice.text ?? "0.0") ?? 0.0
+            vc.currentPrice = stockPrice
+            vc.stockSymbol = self.stockName.text
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+//        showSellOptionPopup()
     }
     
     // Commented for testing and refactor to new controller

@@ -14,12 +14,13 @@ class OrderOutputViewController: UIViewController {
     @IBOutlet weak var balanceField: UILabel!
     @IBOutlet weak var availableShareField: UILabel!
     @IBOutlet weak var outputAmountLabel: UILabel!
-    @IBOutlet weak var outputSharesLabel: UILabel!
-    @IBOutlet weak var outputSharesIcon: UIImageView!
     @IBOutlet weak var outputOrderTypeLabel: UILabel!
     @IBOutlet weak var outputTotalLabel: UILabel!
     @IBOutlet weak var outputSharesForBottomLabel: UILabel!
     @IBOutlet weak var outputpriceLabel: UILabel!
+    
+    var currentPrice: Double?
+    var stockSymbol: String?
     
     
     // UI INTERFACE LOGIC
@@ -55,10 +56,9 @@ class OrderOutputViewController: UIViewController {
         private func toggleAmountAndShares() {
             if outputAmountLabel.text == "  Shares" {
                 outputAmountLabel.text = "  Amount"
-                outputSharesLabel.text = "Shares"
+                
             } else {
-                outputSharesLabel.text = "  Shares"
-                outputSharesLabel.text = "Amount"
+                
             }
         }
     
@@ -89,13 +89,13 @@ class OrderOutputViewController: UIViewController {
             OutputLimitOrder.isUserInteractionEnabled = true
             OutputLimitOrder.addGestureRecognizer(limitOrderTapGesture)
             
-            let sharesLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(sharesTapped))
-            outputSharesLabel.isUserInteractionEnabled = true
-            outputSharesLabel.addGestureRecognizer(sharesLabelTapGesture)
-                    
-                    let sharesIconTapGesture = UITapGestureRecognizer(target: self, action: #selector(sharesTapped))
-            outputSharesIcon.isUserInteractionEnabled = true
-            outputSharesIcon.addGestureRecognizer(sharesIconTapGesture)
+//            let sharesLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(sharesTapped))
+//            outputSharesLabel.isUserInteractionEnabled = true
+//            outputSharesLabel.addGestureRecognizer(sharesLabelTapGesture)
+//                    
+//                    let sharesIconTapGesture = UITapGestureRecognizer(target: self, action: #selector(sharesTapped))
+//            outputSharesIcon.isUserInteractionEnabled = true
+//            outputSharesIcon.addGestureRecognizer(sharesIconTapGesture)
         }
     
         private func setupRoundedLabel(labels: [UILabel]) {

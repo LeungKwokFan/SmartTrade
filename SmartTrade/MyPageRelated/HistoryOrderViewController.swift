@@ -16,10 +16,10 @@ class HistoryOrderViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var TableView: UITableView!
     
 
-    var orderData: [(symbol: String, date: String, price: Double, type: String)] = []
+    var orderData: [(symbol: String, date: String, price: Double, type: String,shares: Int)] = []
     var showCompletedOrders = true
-    var orderCompletedData: [(symbol: String, date: String, price: Double, type: String)] = []
-    var orderIncompletedData: [(symbol: String, date: String, price: Double, type: String)] = []
+    var orderCompletedData: [(symbol: String, date: String, price: Double, type: String,shares: Int)] = []
+    var orderIncompletedData: [(symbol: String, date: String, price: Double, type: String,shares: Int)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +45,10 @@ class HistoryOrderViewController: UIViewController,UITableViewDataSource, UITabl
         }
         
         let order = orderData[indexPath.row]
-        cell.stockSymbol.text = order.symbol
+        cell.stockSymbol.text = order.symbol + "--\(order.shares) Shares"
         cell.orderDate.text = order.date
-        cell.stockPrice.text = String(format: "%.2f", order.price)
-        cell.orderType.text = order.type
+        cell.stockPrice.text = "$"+String(format: "%.2f",order.price)
+        cell.orderType.text = order.type.uppercased()
         
         cell.layer.cornerRadius = 8.0
         cell.layer.masksToBounds = true
@@ -59,7 +59,7 @@ class HistoryOrderViewController: UIViewController,UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 处理用户选择单元格的逻辑
         let order = orderData[indexPath.row]
-        print("用户选择了 \(order.symbol) 的订单, 日期: \(order.date), 价格: \(order.price)")
+        print("用户选择了 \(order.symbol) 的订单\(order.shares), 日期: \(order.date), 价格: \(order.price)")
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -138,14 +138,14 @@ class HistoryOrderViewController: UIViewController,UITableViewDataSource, UITabl
                 
                 for order in orders.reversed() {
                     if let stockCode = order["stockCode"] as? String,
-                       let shares = order["quantity"] as? Double,
+                       let shares = order["quantity"] as? Int,
                        let price = order["price"] as? Double,
                        let status = order["Status"] as? String,
                        let type = order["type"] as? String,
                        let date = order["date"] as? Timestamp {
                         if status == "Done" {
                             let dateString = dateFormatter.string(from: date.dateValue())
-                            self.orderCompletedData.append((symbol: stockCode, date: dateString, price: price, type: type))
+                            self.orderCompletedData.append((symbol: stockCode, date: dateString, price: price, type: type,shares: shares))
                         }
                     }
                 }
@@ -179,14 +179,14 @@ class HistoryOrderViewController: UIViewController,UITableViewDataSource, UITabl
                 
                 for order in orders.reversed() {
                     if let stockCode = order["stockCode"] as? String,
-                       let shares = order["quantity"] as? Double,
+                       let shares = order["quantity"] as? Int,
                        let price = order["price"] as? Double,
                        let status = order["Status"] as? String,
                        let type = order["type"] as? String,
                        let date = order["date"] as? Timestamp {
                         if status == "Waiting" {
                             let dateString = dateFormatter.string(from: date.dateValue())
-                            self.orderIncompletedData.append((symbol: stockCode, date: dateString, price: price, type: type))
+                            self.orderIncompletedData.append((symbol: stockCode, date: dateString, price: price, type: type,shares: shares))
                         }
                     }
                 }
