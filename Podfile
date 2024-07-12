@@ -9,6 +9,7 @@ target 'SmartTrade' do
   
   pod 'MBProgressHUD'
   pod 'Loaf'
+  pod 'NewsAPISwift', '~> 2.0'
   
 
 end
@@ -21,7 +22,7 @@ post_install do |installer|
             end
         end
     end
-    installer.pods_project.targets.each do |target|
-        flutter_additional_ios_build_settings(target)
-    end
+#    installer.pods_project.targets.each do |target|
+#        flutter_additional_ios_build_settings(target)
+#    end
 end

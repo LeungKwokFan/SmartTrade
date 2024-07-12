@@ -1,20 +1,24 @@
 PODS:
   - Loaf (0.7.0)
   - MBProgressHUD (1.2.0)
+  - NewsAPISwift (2.0)
 
 DEPENDENCIES:
   - Loaf
   - MBProgressHUD
+  - NewsAPISwift (~> 2.0)
 
 SPEC REPOS:
   trunk:
     - Loaf
     - MBProgressHUD
+    - NewsAPISwift
 
 SPEC CHECKSUMS:
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  NewsAPISwift: 61b069546b0170b48ee3ef7a0158b294e125d7b7
 
-PODFILE CHECKSUM: 1e45586de961e2f3eb3c05b5a6412c425fc6b8b4
+PODFILE CHECKSUM: 74fd2e28e9e313dbaded29929cbcc58ef75db6c5
 
 COCOAPODS: 1.15.2
