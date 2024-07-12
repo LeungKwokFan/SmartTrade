@@ -13,16 +13,11 @@ class StrategyViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var segmentOutlet: UISegmentedControl!
-    
-    
+
     @IBOutlet weak var newsSegmentView: UIView!
     
-    @IBOutlet weak var lstm: UIView!
-    
-    
-    
-    
-        
+    @IBOutlet weak var spreadView: UIView!
+
     private let apiService = APIService()
     private var subscribers = Set<AnyCancellable>()
     private var searchResults: [SearchResult] = []
@@ -48,7 +43,7 @@ class StrategyViewController: UIViewController, UITableViewDataSource, UITableVi
         case 1:
             self.view.bringSubviewToFront(newsSegmentView)
         case 2:
-            self.view.bringSubviewToFront(lstm)
+            self.view.bringSubviewToFront(spreadView)
             
         default:
             break
