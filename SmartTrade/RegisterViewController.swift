@@ -66,6 +66,8 @@ class RegisterViewController: UIViewController {
                         ])
                         db.collection("Holdings").document(email).setData([
                             "email":email,
+                            "balance": 500000,
+                            "cost": 0,
                             "holdings":[
                                 ["stockCode":"AAPL","shares":50,"avgCost":50],
                                 ["stockCode":"AMZN","shares":100,"avgCost":50]]

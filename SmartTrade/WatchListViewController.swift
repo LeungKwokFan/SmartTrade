@@ -7,6 +7,10 @@
 
 import UIKit
 import Combine
+import Firebase
+import FirebaseCore
+import FirebaseFirestore
+import Foundation
 
 class WatchListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -17,6 +21,7 @@ class WatchListViewController: UIViewController, UITableViewDataSource, UITableV
     private var searchResults: [SearchResult] = []
     @Published private var searchQuery = String()
     var emailID: String = ""
+    var symbols = ["IBM", "AAPL", "GOOGL", "AMZN", "NDAQ", "MSFT"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +29,52 @@ class WatchListViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tabBarController?.selectedIndex = 0
-        performSearch()
+//        updateSymbol()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateSymbol()
+    }
+
+    private func updateSymbol() {
+        let db = Firestore.firestore()
+        guard let email = Auth.auth().currentUser?.email else {
+            print("Error: email is nil")
+            return
+        }
+        
+        db.collection("Watchlist").document(email).getDocument { (document, error) in
+            if let error = error {
+                print("Error getting document: \(error)")
+                return
+            }
+            
+            if let document = document, document.exists {
+                let lists = document.data()?["watchlist"] as? [String] ?? []
+                DispatchQueue.main.async {
+                    self.symbols = lists
+                    self.performSearch()
+                }
+            } else {
+                // Watchlist does not exist, create a new one with the default symbols
+                db.collection("Watchlist").document(email).setData(["watchlist": self.symbols]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                        DispatchQueue.main.async {
+                            self.performSearch()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
     private func performSearch() {
-            let symbols = ["IBM", "AAPL", "GOOGL", "AMZN", "NDAQ", "MSFT"]
+//            let symbols = ["IBM", "AAPL", "GOOGL", "AMZN", "NDAQ", "MSFT"]
             let publishers = symbols.map { symbol -> AnyPublisher<(SearchResult?, [Double]), Error> in
                 let symbolPublisher = apiService.fetchSymbolsPublisher(symbol: symbol)
                     .map { data -> SearchResult? in
@@ -90,6 +136,7 @@ class WatchListViewController: UIViewController, UITableViewDataSource, UITableV
             cell.configure(with: searchResult)
             return cell
         }
+
     
         @IBAction func TradeClicked(_ sender: UIButton) {
         

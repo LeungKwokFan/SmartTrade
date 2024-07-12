@@ -242,7 +242,7 @@ class OrderOutputViewController: UIViewController {
 
                         }
                     } else {
-                        let alert = UIAlertController(title: "Sorry!🧎", message: "You do not own no holdings.", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Sorry!🧎", message: "You do not own holdings.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK👌", style: .default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                     }
@@ -321,10 +321,12 @@ class OrderOutputViewController: UIViewController {
                                     let alert = UIAlertController(title: "Oh...", message: "You do not own this stock.", preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "OK👌", style: .default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
-                                    
+                                    if let vc = self.storyboard?.instantiateViewController(identifier: "PlaceFailedViewController") as? PlaceFailedViewController {
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                    }
                                 }
                             } else {
-                                let alert = UIAlertController(title: "Sorry!🧎", message: "You do not own no holdings.", preferredStyle: .alert)
+                                let alert = UIAlertController(title: "Sorry!🧎", message: "You do not own holdings.", preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "OK👌", style: .default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
                             }
