@@ -35,12 +35,17 @@ class NewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableview.layer.cornerRadius = 15
         tableview.layer.masksToBounds = true// 隐藏超出圆角范围的内容
         
-        updateNews()
+//        updateNews()
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateNews()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +75,7 @@ class NewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func updateNews() {
-        // NewsAPI configuration
+        // NewsAPI 配置
         let apiKey = "b3727b93d1274168b1db19412d1d550d"
         let type = "top-headlines"
         let category = "business"
@@ -80,8 +85,8 @@ class NewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // 构建 NewsAPI 的 URL
         let url = URL(string: "https://newsapi.org/v2/\(type)?country=\(country)&category=\(category)&pageSize=\(pageSize)&apiKey=\(apiKey)")!
 
-        // create URLSession
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        // 创建 URLSession
+        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -99,34 +104,19 @@ class NewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
             do {
                 let newsResponse = try JSONDecoder().decode(NewsResponse.self, from: data)
-                for article in newsResponse.articles {
-                    // remove the record about "https://removed.com"
-                    if article.url.absoluteString != "https://removed.com" {
-                        self.articles.append(article)
-                    }
+                self?.articles = newsResponse.articles.filter { $0.url.absoluteString != "https://removed.com" }
+                DispatchQueue.main.async {
+                    self?.tableview.reloadData()
                 }
-//                showArticles for testing only
-//                self.showArticles(self.articles)
             } catch {
                 print("Error decoding JSON: \(error.localizedDescription)")
             }
         }
 
-        //start
+        // 启动任务
         task.resume()
     }
 
-//    func showArticles(_ articles: [Article]) {
-//        for article in articles {
-//            print("Title: \(article.title)")
-//            print("Author: \(article.author ?? "Unknown")")
-//            print("Description: \(article.description ?? "No description")")
-//            print("URL: \(article.url)")
-//            print("Published: \(article.publishedAt ?? "Unknown")")
-//            print("---")
-//        }
-//        print("Total articles: \(articles.count)")
-//    }
 
     @IBAction func tipButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Tips",

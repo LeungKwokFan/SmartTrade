@@ -42,7 +42,7 @@ class NewsDetailedViewController: UIViewController {
         request.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
         
         let body: [String: Any] = [
-            "inputs": "Hackers steal call records of 'nearly all' AT&T customers"
+            "inputs": articleTitle
         ]
         
         do {
@@ -80,7 +80,11 @@ class NewsDetailedViewController: UIViewController {
                                 makeRequest()
                             }
                         } else {
-                            print("Failed to make request after 2 retries.")
+                            DispatchQueue.main.async {
+                                                    let alert = UIAlertController(title: "Oops..", message: "Try again!", preferredStyle: .alert)
+                                                    alert.addAction(UIAlertAction(title: "Alright", style: .default, handler: nil))
+                                                    self.present(alert, animated: true, completion: nil)
+                                                }
                         }
                         return
                     }
@@ -88,6 +92,7 @@ class NewsDetailedViewController: UIViewController {
                     if let data = data {
                         do {
                             let json = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("\(json)")
                             if let jsonString = String(data: try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted), encoding: .utf8) {
                                 do {
                                     let json = try JSONSerialization.jsonObject(with: jsonString.data(using: .utf8)!, options: [])
@@ -105,7 +110,12 @@ class NewsDetailedViewController: UIViewController {
                                                     }
                                                 }
                                             }
-                                            print("The label with the highest score is: \(maxLabel)")
+                
+                                            DispatchQueue.main.async {
+                                                let alert = UIAlertController(title: "\(maxLabel.uppercased())", message: "According to the FinBert, this maybe is \(maxLabel). The result is for reference only!", preferredStyle: .alert)
+                                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                                                self.present(alert, animated: true, completion: nil)
+                                                                }
                                         }
                                     }
                                 } catch {
