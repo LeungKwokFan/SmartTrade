@@ -44,6 +44,8 @@
 		7B0CFA922C3D2BE80034028E /* HistoryOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CFA912C3D2BE80034028E /* HistoryOrderViewController.swift */; };
 		7B0CFA962C3D4F590034028E /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CFA952C3D4F590034028E /* OrderTableViewCell.swift */; };
 		7B225B932C2AA74D000C9D65 /* TradeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B225B922C2AA74D000C9D65 /* TradeHistoryViewController.swift */; };
+		7BD7F49B2C41942D00A40552 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7F49A2C41942D00A40552 /* NewsViewController.swift */; };
+		7BD7F49D2C425A1800A40552 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7F49C2C425A1800A40552 /* NewsTableViewCell.swift */; };
 		7BF759362C0B33AE000FE466 /* SmartTradeData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BF759342C0B33AE000FE466 /* SmartTradeData.xcdatamodeld */; };
 		7BF7593B2C11A2F7000FE466 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF7593A2C11A2F7000FE466 /* DGCharts */; };
 		7BF7593D2C11A2F7000FE466 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF7593C2C11A2F7000FE466 /* DGChartsDynamic */; };
@@ -118,6 +120,8 @@
 		7B0CFA912C3D2BE80034028E /* HistoryOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderViewController.swift; sourceTree = "<group>"; };
 		7B0CFA952C3D4F590034028E /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		7B225B922C2AA74D000C9D65 /* TradeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeHistoryViewController.swift; sourceTree = "<group>"; };
+		7BD7F49A2C41942D00A40552 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		7BD7F49C2C425A1800A40552 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		7BF759352C0B33AE000FE466 /* SmartTradeData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartTradeData.xcdatamodel; sourceTree = "<group>"; };
 		7BF759422C1585BE000FE466 /* DetailPositionDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPositionDataViewController.swift; sourceTree = "<group>"; };
 		7BF759442C15B4F5000FE466 /* PositionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTableViewCell.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				609E47B82C2CFD190016372B /* DateValueFormatter.swift */,
 				609E47BA2C2D34C00016372B /* FlashingCircleView.swift */,
 				60F6161A2C40C75800E4B702 /* SpreadViewController.swift */,
+				7BD7F49A2C41942D00A40552 /* NewsViewController.swift */,
+				7BD7F49C2C425A1800A40552 /* NewsTableViewCell.swift */,
 			);
 			path = Strategy;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				7BF759432C1585BE000FE466 /* DetailPositionDataViewController.swift in Sources */,
 				7B0CFA922C3D2BE80034028E /* HistoryOrderViewController.swift in Sources */,
 				60C193992BE0CED1003134FE /* LoginViewController.swift in Sources */,
+				7BD7F49B2C41942D00A40552 /* NewsViewController.swift in Sources */,
 				607C88A12C246CB800AAC66B /* TimeMonthlySeries.swift in Sources */,
 				60C1939B2BE0D080003134FE /* RegisterViewController.swift in Sources */,
 				60CBCA772C208FA500ABEA4B /* MyPageViewController.swift in Sources */,
@@ -485,6 +492,7 @@
 				601D193F2C2B2E0100A11E16 /* StrategyViewController.swift in Sources */,
 				609E47B32C2C454B0016372B /* RecommendedTableViewCell.swift in Sources */,
 				60F616062C2E5E7C00E4B702 /* MainPageTabBarViewController.swift in Sources */,
+				7BD7F49D2C425A1800A40552 /* NewsTableViewCell.swift in Sources */,
 				60F6161B2C40C75800E4B702 /* SpreadViewController.swift in Sources */,
 				60F616022C2E581D00E4B702 /* PlaceSuccessfullyViewController.swift in Sources */,
 				607C88A32C2488DE00AAC66B /* stockProfile.swift in Sources */,
