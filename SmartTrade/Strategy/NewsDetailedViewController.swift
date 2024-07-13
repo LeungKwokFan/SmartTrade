@@ -6,19 +6,31 @@
 //
 
 import UIKit
+import WebKit
+import Foundation
 
 class NewsDetailedViewController: UIViewController {
     
+    @IBOutlet weak var webview: WKWebView!
+    @IBOutlet weak var testButton: UIButton!
     var articleURL: URL?
     var articleTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(articleURL)
+        webview.configuration.mediaTypesRequiringUserActionForPlayback = .all
+        webview.layer.cornerRadius = 15
+        guard let url = articleURL else {
+            return
+        }
+        let request = URLRequest(url: url)
+        webview.load(request)
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func testButtonTapped(_ sender: Any) {}
+    
     
 
     /*
