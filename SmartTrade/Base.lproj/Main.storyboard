@@ -1668,7 +1668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLz-K4-A3A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4440.4580152671751" y="581.69014084507046"/>
+            <point key="canvasLocation" x="5282" y="575"/>
         </scene>
         <!--Trade History View Controller-->
         <scene sceneID="Lnj-eS-2H3">
@@ -2138,6 +2138,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8v-b2-lwa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3635.8778625954196" y="495.77464788732397"/>
+        </scene>
+        <!--News Detailed View Controller-->
+        <scene sceneID="cpf-Sz-9ac">
+            <objects>
+                <viewController storyboardIdentifier="NewsDetailedViewController" id="azI-47-SZW" customClass="NewsDetailedViewController" customModule="SmartTrade" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T7N-v6-iH1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Znx-OX-Guj"/>
+                        <color key="backgroundColor" red="0.12515887813125021" green="0.12692938232073439" blue="0.1681463266444444" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKd-GZ-lJC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4439" y="575"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7Gs-Ve-1xv">

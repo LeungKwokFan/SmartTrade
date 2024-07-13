@@ -56,8 +56,13 @@ class NewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 处理用户选择单元格的逻辑
-
+        if let vc = storyboard?.instantiateViewController(identifier: "NewsDetailedViewController") as? NewsDetailedViewController {
+            let article = articles[indexPath.row]
+            vc.articleURL = article.url
+            vc.articleTitle = article.title
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -125,7 +130,7 @@ class NewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
     @IBAction func tipButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Tips",
-                                      message: "News comes from NewsAPI and does not represent our position. The sentiment analysis of news headlines is for reference only and does not constitute any investment advice.",
+                                      message: "News comes from NewsAPI and does not represent our position. The sentiment analysis of news headlines powered by FinBert is for reference only and does not constitute any investment advice.",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "I Accpet.", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
