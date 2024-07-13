@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2zi-wl-6TY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2zi-wl-6TY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1031,6 +1031,35 @@
             </objects>
             <point key="canvasLocation" x="3635.8778625954196" y="1419.7183098591549"/>
         </scene>
+        <!--Search Table View Controller-->
+        <scene sceneID="gJR-5r-lfh">
+            <objects>
+                <tableViewController storyboardIdentifier="SearchTableViewController" id="nKh-u9-DvI" customClass="SearchTableViewController" customModule="SmartTrade" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ScX-Hl-IFf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.078431372549019607" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.082352941176470587" green="0.078431372549019607" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Xgg-X9-wwF">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xgg-X9-wwF" id="gD2-V8-kHZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nKh-u9-DvI" id="dnA-RP-UFe"/>
+                            <outlet property="delegate" destination="nKh-u9-DvI" id="O9j-TT-Zaw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cwO-hA-zQO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2879" y="-849"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lPf-9a-L2h">
             <objects>
@@ -1073,6 +1102,9 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="searchClicked:" destination="mS5-r3-JEq" eventType="touchUpInside" id="P9R-MK-qnU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4n-ab-lsg">
                                 <rect key="frame" x="43" y="705" width="145.33333333333334" height="34.333333333333371"/>
@@ -1214,6 +1246,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="iT4-j2-10z"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchButton" destination="lKZ-ef-YYI" id="mTj-Ls-ebA"/>
                         <outlet property="tableView" destination="9ZX-Na-2fp" id="ssX-i1-agV"/>
                     </connections>
                 </viewController>
@@ -2093,21 +2126,6 @@
             </objects>
             <point key="canvasLocation" x="3636" y="496"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7Gs-Ve-1xv">
-            <objects>
-                <viewController id="Lhp-fX-bCr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6OR-1F-zC9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kMO-7J-Rgn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hz9-f3-Uog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2879" y="-849"/>
-        </scene>
         <!--Spread View Controller-->
         <scene sceneID="sgg-wm-XOY">
             <objects>
@@ -2129,35 +2147,32 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Frame 965" width="154" height="133"/>
-        <image name="arrowshape.left.arrowshape.right.fill" catalog="system" width="32" height="32"/>
+        <image name="arrowshape.left.arrowshape.right.fill" catalog="system" width="128" height="54"/>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="briefcase" catalog="system" width="128" height="100"/>
         <image name="card1" width="332" height="230"/>
         <image name="chart.line.uptrend.xyaxis" catalog="system" width="128" height="102"/>
         <image name="chart.line.uptrend.xyaxis.circle" catalog="system" width="128" height="123"/>
         <image name="chart.line.uptrend.xyaxis.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="checkmark.circle" catalog="system" width="32" height="32"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="creditcard.fill" catalog="system" width="128" height="88"/>
-        <image name="dollarsign" catalog="system" width="32" height="32"/>
+        <image name="dollarsign" catalog="system" width="89" height="128"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="123"/>
-        <image name="envelope" catalog="system" width="32" height="32"/>
+        <image name="envelope" catalog="system" width="128" height="85"/>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
-        <image name="magnifyingglass" catalog="system" width="32" height="32"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="order" width="373" height="100"/>
         <image name="pencil.and.list.clipboard" catalog="system" width="114" height="128"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="plus.app" catalog="system" width="32" height="32"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="star.circle" catalog="system" width="128" height="123"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
-        <image name="xmark.circle" catalog="system" width="32" height="32"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

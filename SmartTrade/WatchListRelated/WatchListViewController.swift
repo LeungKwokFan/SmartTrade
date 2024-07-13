@@ -15,7 +15,9 @@ import Foundation
 class WatchListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
+    @IBOutlet weak var searchButton: UIButton!
+    
     private let apiService = APIService()
     private var subscribers = Set<AnyCancellable>()
     private var searchResults: [SearchResult] = []
@@ -138,10 +140,18 @@ class WatchListViewController: UIViewController, UITableViewDataSource, UITableV
         }
 
     
-        @IBAction func TradeClicked(_ sender: UIButton) {
+    @IBAction func TradeClicked(_ sender: UIButton) {
         
         
          
+    }
+    
+    
+    @IBAction func searchClicked(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "SearchTableViewController") as? SearchTableViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
  

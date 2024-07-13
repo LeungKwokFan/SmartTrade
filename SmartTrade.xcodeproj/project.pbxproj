@@ -26,6 +26,7 @@
 		609E47BB2C2D34C00016372B /* FlashingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609E47BA2C2D34C00016372B /* FlashingCircleView.swift */; };
 		609E47BD2C2D64BC0016372B /* TimeThirtyMinuteSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609E47BC2C2D64BC0016372B /* TimeThirtyMinuteSeries.swift */; };
 		609E47C12C2DB6380016372B /* OrderOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609E47C02C2DB6380016372B /* OrderOutputViewController.swift */; };
+		60ABB9022C4219B800002588 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ABB9012C4219B800002588 /* SearchTableViewController.swift */; };
 		60AF41ED2C01881B0034282D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AF41EC2C01881B0034282D /* SceneDelegate.swift */; };
 		60AF41EF2C0188570034282D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AF41EE2C0188570034282D /* AppDelegate.swift */; };
 		60AF41F22C018A050034282D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60AF41F02C018A050034282D /* LaunchScreen.storyboard */; };
@@ -98,6 +99,7 @@
 		609E47BA2C2D34C00016372B /* FlashingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashingCircleView.swift; sourceTree = "<group>"; };
 		609E47BC2C2D64BC0016372B /* TimeThirtyMinuteSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeThirtyMinuteSeries.swift; sourceTree = "<group>"; };
 		609E47C02C2DB6380016372B /* OrderOutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderOutputViewController.swift; sourceTree = "<group>"; };
+		60ABB9012C4219B800002588 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		60AF41EC2C01881B0034282D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		60AF41EE2C0188570034282D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60AF41F12C018A050034282D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -235,6 +237,15 @@
 			path = AccountsPage;
 			sourceTree = "<group>";
 		};
+		60ABB9002C42192600002588 /* WatchListRelated */ = {
+			isa = PBXGroup;
+			children = (
+				60AF41F32C01C17E0034282D /* WatchListViewController.swift */,
+				60ABB9012C4219B800002588 /* SearchTableViewController.swift */,
+			);
+			path = WatchListRelated;
+			sourceTree = "<group>";
+		};
 		60C193782BE07BF7003134FE = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +268,7 @@
 		60C193832BE07BF7003134FE /* SmartTrade */ = {
 			isa = PBXGroup;
 			children = (
+				60ABB9002C42192600002588 /* WatchListRelated */,
 				60F6161E2C40CA3700E4B702 /* ModalData */,
 				7B0CFA902C3D2BB20034028E /* MyPageRelated */,
 				601D193D2C2B2DDE00A11E16 /* Strategy */,
@@ -268,7 +280,6 @@
 				60AF41EE2C0188570034282D /* AppDelegate.swift */,
 				60AF41EC2C01881B0034282D /* SceneDelegate.swift */,
 				60C1938A2BE07BF7003134FE /* Main.storyboard */,
-				60AF41F32C01C17E0034282D /* WatchListViewController.swift */,
 				60C193982BE0CED1003134FE /* LoginViewController.swift */,
 				60C1939A2BE0D080003134FE /* RegisterViewController.swift */,
 				60CBCA762C208FA500ABEA4B /* MyPageViewController.swift */,
@@ -477,6 +488,7 @@
 				6080A47E2C07A08D00DC3D02 /* StockDetailViewController.swift in Sources */,
 				7BF759432C1585BE000FE466 /* DetailPositionDataViewController.swift in Sources */,
 				7B0CFA922C3D2BE80034028E /* HistoryOrderViewController.swift in Sources */,
+				60ABB9022C4219B800002588 /* SearchTableViewController.swift in Sources */,
 				60C193992BE0CED1003134FE /* LoginViewController.swift in Sources */,
 				607C88A12C246CB800AAC66B /* TimeMonthlySeries.swift in Sources */,
 				60C1939B2BE0D080003134FE /* RegisterViewController.swift in Sources */,
