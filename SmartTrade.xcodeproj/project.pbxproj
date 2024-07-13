@@ -48,6 +48,7 @@
 		7BD7F49B2C41942D00A40552 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7F49A2C41942D00A40552 /* NewsViewController.swift */; };
 		7BD7F49D2C425A1800A40552 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7F49C2C425A1800A40552 /* NewsTableViewCell.swift */; };
 		7BD7F49F2C426B8900A40552 /* NewsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7F49E2C426B8900A40552 /* NewsDetailedViewController.swift */; };
+		7BD7F4A22C42835D00A40552 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD7F4A12C42835D00A40552 /* PythonKit */; };
 		7BF759362C0B33AE000FE466 /* SmartTradeData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BF759342C0B33AE000FE466 /* SmartTradeData.xcdatamodeld */; };
 		7BF7593B2C11A2F7000FE466 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF7593A2C11A2F7000FE466 /* DGCharts */; };
 		7BF7593D2C11A2F7000FE466 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF7593C2C11A2F7000FE466 /* DGChartsDynamic */; };
@@ -152,6 +153,7 @@
 				7BFFB79B2BE0ECF300F6EE2A /* FirebaseAppCheck in Frameworks */,
 				7BFFB7992BE0ECF300F6EE2A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				7BFFB79F2BE0ECF300F6EE2A /* FirebaseAuth in Frameworks */,
+				7BD7F4A22C42835D00A40552 /* PythonKit in Frameworks */,
 				7BFFB7A32BE0ECF300F6EE2A /* FirebaseCrashlytics in Frameworks */,
 				7BFFB7C32BE0ECF300F6EE2A /* FirebaseRemoteConfigSwift in Frameworks */,
 				7BFFB7B52BE0ECF300F6EE2A /* FirebaseInAppMessaging-Beta in Frameworks */,
@@ -375,6 +377,7 @@
 				7BFFB7C62BE0ECF300F6EE2A /* FirebaseStorageCombine-Community */,
 				7BF7593A2C11A2F7000FE466 /* DGCharts */,
 				7BF7593C2C11A2F7000FE466 /* DGChartsDynamic */,
+				7BD7F4A12C42835D00A40552 /* PythonKit */,
 			);
 			productName = SmartTrade;
 			productReference = 60C193812BE07BF7003134FE /* SmartTrade.app */;
@@ -407,6 +410,7 @@
 			packageReferences = (
 				7BFFB7912BE0ECF300F6EE2A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7BF759392C11A2F7000FE466 /* XCRemoteSwiftPackageReference "Charts" */,
+				7BD7F4A02C42835D00A40552 /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			productRefGroup = 60C193822BE07BF7003134FE /* Products */;
 			projectDirPath = "";
@@ -744,6 +748,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7BD7F4A02C42835D00A40552 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7BF759392C11A2F7000FE466 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
@@ -763,6 +775,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7BD7F4A12C42835D00A40552 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BD7F4A02C42835D00A40552 /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
 		7BF7593A2C11A2F7000FE466 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7BF759392C11A2F7000FE466 /* XCRemoteSwiftPackageReference "Charts" */;

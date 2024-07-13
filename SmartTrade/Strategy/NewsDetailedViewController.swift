@@ -9,6 +9,7 @@ import UIKit
 import WebKit
 import Foundation
 
+
 class NewsDetailedViewController: UIViewController {
     
     @IBOutlet weak var webview: WKWebView!
@@ -29,7 +30,9 @@ class NewsDetailedViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func testButtonTapped(_ sender: Any) {}
+    @IBAction func testButtonTapped(_ sender: Any) {
+
+    }
     
     
 
