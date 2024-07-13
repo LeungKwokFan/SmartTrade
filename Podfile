@@ -9,7 +9,6 @@ target 'SmartTrade' do
   
   pod 'MBProgressHUD'
   pod 'Loaf'
-  pod 'NewsAPISwift', '~> 2.0'
   
 
 end
